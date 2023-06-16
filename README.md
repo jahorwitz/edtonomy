@@ -5,7 +5,7 @@
 Cloning the repository:
 
 ```
-git clone git@github.com:jahorwitz/mu-methods.git
+git clone git@github.com:jahorwitz/edtonomy.git
 ```
 
 !!!IMPORTANT Make sure to install dependencies before making any code changes. This repository utilizes git-hooks which must be installed using npm before they will function.
@@ -30,8 +30,7 @@ npm run test
 
 ## Deployments
 
-- [Production Build](http://mu-methods-apiary.s3-website-us-east-1.amazonaws.com/)
-- [Storybook](http://storybook.mu-methods-apiary.s3-website-us-east-1.amazonaws.com/)
+- [Storybook](http://storybook.<BUCKET_NAME>.s3-website-us-east-1.amazonaws.com/)
 
 ## Contributing
 
@@ -82,15 +81,14 @@ If your commit message does not conform to the correct pattern, you will receive
 
 This project uses the following key libraries
 
-- [react-bootstrap](https://react-bootstrap.github.io/)
-- [Bootstrap 5](https://getbootstrap.com/docs/5.2/getting-started/introduction/)
-- [Bootstrap Classes](https://getbootstrap.com/docs/5.0/utilities/colors/)
+- [TailwindCSS](https://tailwindcss.com/docs/installation)
+- [Tailwind Components](https://tailwindui.com/components)
+- [Headless UI](https://headlessui.com/)
 - [Vite JS](https://vitejs.dev/)
 - [Storybook JS](https://storybook.js.org/)
-- [React Router](https://reactrouter.com/en/main/start/tutorial)
 - [Testing Cheatsheet](https://testing-library.com/docs/react-testing-library/cheatsheet)
 - [Testing Cheatsheet #2](https://vitest.dev/api/)
 
 ## Deployment
 
-The project is configured to deploy automatically using GitHub Actions whenever a commit is made to `main`. This workflow is triggered by merging a Pull Request. After the workflow runs, you can visit the deployed site here: http://mu-methods-apiary.s3-website-us-east-1.amazonaws.com/
+The project is configured to deploy automatically using GitHub Actions whenever a commit is made to `main`. This workflow is triggered by merging a Pull Request. After the workflow runs, you can visit the deployed site here: http://<BUCKET_NAME>.s3-website-us-east-1.amazonaws.com/
