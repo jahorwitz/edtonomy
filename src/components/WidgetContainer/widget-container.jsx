@@ -5,11 +5,16 @@ import WidgetButton from "../WidgetButton/widget-button";
 const WidgetContainer = () => {
   const [isButtonClick, setIsButtonClick] = useState(false);
   const [showIntroModal, setShowIntroModal] = useState(false);
+  const [timer, setTimer] = useState(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowIntroModal(true);
-    }, 3000);
+    if (isButtonClick) {
+      setTimer(
+        setTimeout(() => {
+          setShowIntroModal(true);
+        }, 3000)
+      );
+    }
 
     return () => {
       clearTimeout(timer);
@@ -22,15 +27,16 @@ const WidgetContainer = () => {
 
   const handleCloseClick = () => {
     setIsButtonClick(false);
+    clearTimeout(timer); // Clear the timer
   };
   return (
     <div className="">
       <WidgetButton handleClick={handleButtonClick} label="Support" />
       {isButtonClick && (
-        <div className="bg-white drop-shadow-md pl-[24px] pr-[24px] pt-[32px] w-[411px] rounded-[12px] absolute right-[20px] bottom-[20.42px]">
+        <div className="bg-white widget-shadow pl-[24px] pr-[24px] pt-[32px] w-[411px] rounded-[12px] absolute right-[20px] bottom-[20.42px]">
           <div className="flex justify-between items-center mb-[32px]">
             <div className="flex items-center gap-[16px]">
-              <img src={profile} alt="widget-avatar" />
+              <img src={profile} alt="widget-avatar" className="w-[52px] h-[52px]"/>
               <h1 className="font-bold text-[28px]">Welcom, Carlo</h1>
             </div>
             <button>
