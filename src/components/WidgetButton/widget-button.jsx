@@ -1,7 +1,12 @@
-const widgetButton = ({ label }) => {
+const WidgetButton = ({ label, handleClick }) => {
   return (
-    <button className="text-bold bg-pink-300 w-[30px] h-[10px]">{label}</button>
+    <button
+      className="font-bold text-white absolute bottom-[36.42px] right-10 bg-[#FF533D] pt-[12px] pl-[16px] pr-[16px] pb-[16px] rounded-[16px]"
+      onClick={handleClick}
+    >
+      {label}
+    </button>
   );
 };
 
-export default widgetButton;
+export default WidgetButton;
