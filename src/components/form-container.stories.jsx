@@ -5,7 +5,7 @@ export default {
   title: "Form",
 };
 
-const Template = () => {return(<FormContainer {...args} />)};
+const Template = (args) => {return(<FormContainer {...args} />)};
 
 export const Default = Template.bind({});
 Default.args = {
