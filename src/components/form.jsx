@@ -1,22 +1,30 @@
-const Form = ({ children, onSubmit, register, ...htmlFormAttributes }) => (
+import { useForm } from "react-hook-form";
+
+const Form = ({ children, onSubmit, ...htmlFormAttributes }) => (
   <>
     <form onSubmit={onSubmit} className="font-['Inter'] not-italic">
       {children}
     </form>
   </>
 );
-Form.TextArea = (label, placeholder, ...htmlInputElement) => (
+Form.TextArea = (props,...htmlInputElement) => {
+  const {
+    register
+  } = useForm();
+  return (
   <label>
     <div className="mx-[24px] font-['Inter'] not-italic font-medium text-[1.25rem] text-black text-sm/[120%]">
-      What were you trying to do?
+      {props.labelText}
     </div>
     <textarea
-      className="w-80 h-24 font-['Inter'] not-italic pl-[12px] pt-[12px] pr-[12px] resize-none mx-[24px] mt-[16px] mb-[24px] border border-solid border-black/[0.4] rounded-lg "
-      placeholder="i was trying to create a new teaching event..."
+      className="w-[363px] h-[105px] font-['Inter'] not-italic pl-[12px] pt-[12px] pr-[12px] resize-none mx-[24px] mt-[16px] mb-[24px] border border-solid border-black/[0.4] rounded-lg "
+      placeholder= {props.placeHolder}
       type="text"
       minLength="1"
       maxLength="40"
+      {...register(props.labelText)}
     />
   </label>
-);
+  );
+};
 export default Form;
