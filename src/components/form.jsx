@@ -22,7 +22,7 @@ Form.TextArea = (props,...htmlInputElement) => {
       type="text"
       minLength="1"
       maxLength="40"
-      {...register(props.labelText)}
+      {...register("Form-TextArea")}
     />
   </label>
   );
