@@ -17,7 +17,7 @@ Form.TextArea = (props,...htmlInputElement) => {
       {props.labelText}
     </div>
     <textarea
-      className="w-[363px] h-[105px] font-['Inter'] text-black/[.04] font-medium text-sm/[120%] text-[1rem] not-italic pl-[12px] pt-[12px] pr-[12px] resize-none mx-[24px] mt-[16px] mb-[24px] border border-solid border-black/[0.4] rounded-lg "
+      className="w-[363px] h-[105px] font-['Inter'] text-black font-medium leading-[120%] text-[1rem] not-italic pl-[12px] pt-[12px] pr-[12px] resize-none mx-[24px] mt-[16px] mb-[24px] border border-solid border-black/[0.4] rounded-lg "
       placeholder= {props.placeHolder}
       type="text"
       minLength="1"
