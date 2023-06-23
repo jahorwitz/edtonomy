@@ -1,13 +1,16 @@
 import { useForm } from "react-hook-form";
-
+// the Form component take as argument the children elements, an onSubmit function and atributes for a form tag.
 const Form = ({ children, onSubmit, ...htmlFormAttributes }) => (
+  // form element
   <>
     <form onSubmit={onSubmit} className="font-['Inter'] not-italic" data-testid="form-1">
       {children}
     </form>
   </>
 );
+// the Form.TextArea element take as argument props and htmlInputElement
 Form.TextArea = (props,...htmlInputElement) => {
+  // the register function from recat-hook-form is been call here 
   const {
     register
   } = useForm();
@@ -22,6 +25,7 @@ Form.TextArea = (props,...htmlInputElement) => {
       type="text"
       minLength="1"
       maxLength="40"
+      //registering the name for the text are in the hook
       {...register("Form-TextArea")}
     />
   </label>
