@@ -1,13 +1,13 @@
-const Button = ({ onClick, children, ...HTMLButtonElement }) => {
+const Button = ({ onClick, style, children, ...HTMLButtonElement }) => {
   return (
-    <button onClick={onClick} {...HTMLButtonElement}>
+    <button onClick={onClick} className={style} {...HTMLButtonElement}>
       {children}
     </button>
   );
 };
 
 Button.WithIcon = ({ icon }) => {
-  return <i src={icon}></i>;
+  return <img src={icon} className="w-6 h-6" />;
 };
 Button.WithLink = ({ icon, to }) => {
   return <i src={icon} onClick={to}></i>;
