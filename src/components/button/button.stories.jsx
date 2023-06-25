@@ -6,7 +6,7 @@ export default {
   title: "Button",
   component: Button,
 };
-
+//email support button
 export const EmailButton = ({ onClick }) => {
   return (
     <Button onClick={onClick} style="border rounded-lg overflow-hidden">
@@ -19,7 +19,7 @@ export const EmailButton = ({ onClick }) => {
     </Button>
   );
 };
-
+//one button for getting started view
 export const ButtonWithLink = ({ onClick }) => {
   return (
     <Button
@@ -38,7 +38,7 @@ export const ButtonWithLink = ({ onClick }) => {
     </Button>
   );
 };
-
+//send report button for report a problem view
 export const PrimaryButton = ({ onClick }) => {
   return (
     <Button onClick={onClick} style="border rounded-lg overflow-hidden">
@@ -50,7 +50,7 @@ export const PrimaryButton = ({ onClick }) => {
     </Button>
   );
 };
-
+//button for article view. changes outline on hover
 export const SecondaryOutlineButton = ({ onClick }) => {
   return (
     <Button
@@ -61,7 +61,7 @@ export const SecondaryOutlineButton = ({ onClick }) => {
     </Button>
   );
 };
-
+//button for modal window "would you recommend EdTonomy to a friend? has selected properties"
 export const SecondarySelectedButton = ({ onClick }) => {
   return (
     <Button
