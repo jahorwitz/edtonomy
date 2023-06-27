@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { closeIcon, profile } from "../../assests/index";
-import WidgetButton from "../WidgetButton/widget-button";
+import { WidgetButton } from "../WidgetButton/widget-button";
 
 const WidgetContainer = () => {
-  const [isButtonClick, setIsButtonClick] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [showIntroModal, setShowIntroModal] = useState(false);
   const [timer, setTimer] = useState(null);
 
   useEffect(() => {
-    if (isButtonClick) {
+    if (isOpen) {
       setTimer(
         setTimeout(() => {
           setShowIntroModal(true);
@@ -19,20 +19,20 @@ const WidgetContainer = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, [isButtonClick]);
+  }, [isOpen]);
 
   const handleButtonClick = () => {
-    setIsButtonClick(true);
+    setIsOpen(true);
   };
 
   const handleCloseClick = () => {
-    setIsButtonClick(false);
+    setIsOpen(false);
     clearTimeout(timer); // Clear the timer
   };
   return (
     <div className="">
       <WidgetButton handleClick={handleButtonClick} label="Support" />
-      {isButtonClick && (
+      {isOpen && (
         <div className="bg-white widget-shadow pl-[24px] pr-[24px] pt-[32px] w-[411px] rounded-[12px] absolute right-[20px] bottom-[20.42px]">
           <div className="flex justify-between items-center mb-[32px]">
             <div className="flex items-center gap-[16px]">
