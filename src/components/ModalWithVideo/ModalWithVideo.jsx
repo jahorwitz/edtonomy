@@ -15,6 +15,7 @@ export default function ModalWithVideo() {
   return (
     <>
       <div
+        data-testid="video-modal"
         className={`${
           isModalOpen
             ? "hidden"
@@ -39,6 +40,7 @@ export default function ModalWithVideo() {
           <button
             className="absolute top-[-20px] right-[-18.5px]"
             onClick={closePopup}
+            data-testid="close-button"
           >
             <img src={closeButton} className="w-[13.5px] h-[13.5px]"></img>
           </button>
