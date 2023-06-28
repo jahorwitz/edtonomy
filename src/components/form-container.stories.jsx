@@ -1,36 +1,40 @@
-import Form from "./form";
+import { Form } from "./form";
 import FormContainer from "./form-container";
 export default {
-  component: FormContainer,
+  component: Form,
   title: "Form",
 };
 
 const Template = (args) => {
-  return <FormContainer {...args} />;
+  return <Form {...args} />;
 };
 
 export const Default = Template.bind({});
 Default.args = {
-  task: {
-    id: "1",
-    title: "Test Task",
-    state: "TASK_INBOX",
-  },
-  children: (
-    <>
-      <Form.TextArea
-        labelText={"What were you trying to do?"}
-        placeHolder={"I was trying to create a new teaching event..."}
-      />
-      <Form.TextArea
-        labelText={"What were you trying to do?"}
-        placeHolder={"I was trying to create a new teaching event..."}
-      />
-      <Form.TextArea
-        labelText={"What were you trying to do?"}
-        placeHolder={"I was trying to create a new teaching event..."}
-      />
-      <Form.TextArea labelText={"Is this Ok?"} placeHolder={"Yes It is "} />
-    </>
-  ),
+  children: [
+    <Form.TextArea
+      key="question-1"
+      id="question-1"
+      labelText="What were you trying to do?"
+      placeholder="I was trying to create a new teaching event..."
+    />,
+    <Form.TextArea
+      key="question-2"
+      id="question-2"
+      labelText="What were you trying to do?"
+      placeholder="I was trying to create a new teaching event..."
+    />,
+    <Form.TextArea
+      key="question-3"
+      id="question-3"
+      labelText="What were you trying to do?"
+      placeholder="I was trying to create a new teaching event..."
+    />,
+    <Form.TextArea
+      key="question-4"
+      id="question-4"
+      labelText={"Is this Ok?"}
+      placeholder={"Yes It is "}
+    />,
+  ],
 };
