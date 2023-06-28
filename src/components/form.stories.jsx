@@ -3,11 +3,9 @@ export default {
   component: Form,
   title: "Form",
 };
-
 const Template = (args) => {
   return <Form {...args} />;
 };
-
 export const Default = Template.bind({});
 Default.args = {
   children: [

@@ -6,7 +6,6 @@ export const Form = ({ className, children, onSubmit, ...rest }) => {
     handleSubmit,
     // formState: { errors },
   } = useForm();
-
   return (
     // form element
     <form className={className} onSubmit={handleSubmit(onSubmit)} {...rest}>
