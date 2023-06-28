@@ -9,11 +9,7 @@ export const Form = ({ className, children, onSubmit, ...rest }) => {
 
   return (
     // form element
-    <form
-      className={className}
-      onSubmit={handleSubmit(onSubmit)}
-      {...rest}
-    >
+    <form className={className} onSubmit={handleSubmit(onSubmit)} {...rest}>
       {children}
     </form>
   );
