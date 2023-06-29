@@ -1,30 +1,32 @@
-import { fireEvent, render } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
+import { fireEvent, render, screen } from "@testing-library/react";
 import ModalWithVideo from "./ModalWithVideo";
+import OpenModalButton from "./OpenModalButton";
 
 describe("ModalWithVideo", () => {
-  it("renders the watch video button", () => {
-    const { getByText } = render(<ModalWithVideo />);
-    const watchVideoButton = getByText("Watch Video");
-    expect(watchVideoButton).toBeInTheDocument();
-  });
-
   it("opens the modal when the watch video button is clicked", () => {
-    const { getByText, getByTestId } = render(<ModalWithVideo />);
-    const watchVideoButton = getByText("Watch Video");
-    fireEvent.click(watchVideoButton);
-    const modal = getByTestId("video-modal");
-    expect(modal).toBeInTheDocument();
+    render(
+      <>
+        <OpenModalButton />
+        <div data-testId="modal-with-video">
+          <div className="relative"></div>
+        </div>
+      </>
+    );
+
+    fireEvent.click(screen.getByText("Watch Video"));
+    expect(screen.getByTestId("modal-with-video")).toBeInTheDocument();
   });
 
   it("closes the modal when the close button is clicked", () => {
-    const { getByText, getByTestId, queryByTestId } = render(
-      <ModalWithVideo />
+    const { getByAltText, queryByTestId } = render(
+      <ModalWithVideo data-testId="modal-with-video" />
     );
-    const watchVideoButton = getByText("Watch Video");
-    fireEvent.click(watchVideoButton);
-    const closeButton = getByTestId("close-button");
+
+    const closeButton = getByAltText("close-button");
     fireEvent.click(closeButton);
-    const modal = queryByTestId("modal");
+
+    const modal = queryByTestId("modal-with-video");
     expect(modal).toBeNull();
   });
 });

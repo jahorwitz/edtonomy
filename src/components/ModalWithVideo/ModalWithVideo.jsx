@@ -1,7 +1,9 @@
+import cx from "classnames";
 import { useState } from "react";
 import closeButton from "../../images/close-button.svg";
+import OpenModalButton from "./OpenModalButton";
 
-export default function ModalWithVideo() {
+export default function ModalWithVideo({ className, ...rest }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   function openPopup() {
@@ -14,35 +16,33 @@ export default function ModalWithVideo() {
 
   return (
     <>
+      {!isModalOpen && (
+        <OpenModalButton
+          openPopup={openPopup}
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+        />
+      )}
       <div
-        data-testid="video-modal"
-        className={`${
-          isModalOpen
-            ? "hidden"
-            : "flex justify-center items-center w-screen h-screen"
-        }`}
-      >
-        <button
-          onClick={openPopup}
-          className="border-[1px] bg-white w-[100px] h-[100px] "
-        >
-          Watch Video
-        </button>
-      </div>
-      <div
-        className={`${
-          isModalOpen
-            ? "absolute w-screen h-screen flex items-center justify-center bg-black bg-opacity-50 z-1"
-            : "hidden"
-        }`}
+        className={cx(
+          `${
+            isModalOpen
+              ? "absolute w-screen h-screen flex items-center justify-center bg-black bg-opacity-50 z-1"
+              : "hidden"
+          }`,
+          className
+        )}
       >
         <div className="relative">
           <button
             className="absolute top-[-20px] right-[-18.5px]"
             onClick={closePopup}
-            data-testid="close-button"
           >
-            <img src={closeButton} className="w-[13.5px] h-[13.5px]"></img>
+            <img
+              src={closeButton}
+              className="w-[13.5px] h-[13.5px]"
+              alt="close-button"
+            ></img>
           </button>
           <iframe
             className="bg-black rounded-[10px]"
