@@ -8,6 +8,8 @@ import Great from "../../image/Emotion-Great.svg";
 import Okay from "../../image/Emotion-Okay.svg";
 import So_so from "../../image/Emotion-So-so.svg";
 
+import NpsScoreInput from "../NpsScoreInput/NpsScoreInput";
+
 export default function NpsFormModal() {
   const [feedbackSubmittedYes, setFeedbackSubmittedYes] = useState(false);
   const [feedbackSubmittedNo, setFeedbackSubmittedNo] = useState(false);
@@ -19,6 +21,8 @@ export default function NpsFormModal() {
   const [isFeedbackValid, setIsFeedbackValid] = useState(false);
 
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+
+  const [isModalOpen, setIsModalOpen] = useState(true);
 
   const handleYesButtonClick = (e) => {
     e.preventDefault();
@@ -62,10 +66,27 @@ export default function NpsFormModal() {
     }
   };
 
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
+
+  if (!isModalOpen) {
+    return null; // Return null if the modal should be closed
+  }
+
+  const [selectedRating, setSelectedRating] = useState(0);
+
+  const updateSelectedRating = (rating) => {
+    setSelectedRating(rating);
+  };
+
   return (
     <div className="modal__form-shadow">
       <form className="modal__form" onSubmit={handleFormSubmit}>
-        <button className="modal__exit-button"></button>
+        <button
+          className="modal__exit-button"
+          onClick={handleModalClose}
+        ></button>
         {isFormSubmitted ? (
           <div className="modal__form-container">
             <h1 className="modal__form-title">Thanks for your feedback!</h1>
@@ -76,27 +97,43 @@ export default function NpsFormModal() {
               Hey, do you enjoy using EdTonomy?
             </h1>
             <div className="modal__form-rating-icons">
-              <div className="modal__icon-text-wrapper">
-                <img className="modal__icon" alt="awful" src={Awful} />
-                <p className="modal__icon-text">Awful</p>
-              </div>
-              <div className="modal__icon-text-wrapper">
-                <img className="modal__icon" alt="so so" src={So_so} />
-                <p className="modal__icon-text">So-so</p>
-              </div>
-              <div className="modal__icon-text-wrapper">
-                <img className="modal__icon" alt="okay" src={Okay} />
-                <p className="modal__icon-text">Okay</p>
-              </div>
-              <div className="modal__icon-text-wrapper">
-                <img className="modal__icon" alt="good" src={Good} />
-                <p className="modal__icon-text">Good</p>
-              </div>
-              <div className="modal__icon-text-wrapper">
-                <img className="modal__icon" alt="great" src={Great} />
-                <p className="modal__icon-text">Perfect</p>
-              </div>
+              <NpsScoreInput
+                icon={Awful}
+                alt="awful"
+                text="Awful"
+                onClick={() => updateSelectedRating(1)}
+                isSelected={selectedRating === 1}
+              />
+              <NpsScoreInput
+                icon={So_so}
+                alt="so so"
+                text="So-so"
+                onClick={() => updateSelectedRating(2)}
+                isSelected={selectedRating === 2}
+              />
+              <NpsScoreInput
+                icon={Okay}
+                alt="okay"
+                text="Okay"
+                onClick={() => updateSelectedRating(3)}
+                isSelected={selectedRating === 3}
+              />
+              <NpsScoreInput
+                icon={Good}
+                alt="good"
+                text="Good"
+                onClick={() => updateSelectedRating(4)}
+                isSelected={selectedRating === 4}
+              />
+              <NpsScoreInput
+                icon={Great}
+                alt="great"
+                text="Perfect"
+                onClick={() => updateSelectedRating(5)}
+                isSelected={selectedRating === 5}
+              />
             </div>
+
             <h1 className="modal__form-title">
               Would you recommend EdTonomy to a friend?
             </h1>

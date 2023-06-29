@@ -73,7 +73,7 @@
 
 .modal__icon-text-wrapper {
   display: flex;
-  width: 68px;
+  width: 70px;
   height: 54px;
   padding: 8px 18px 8px 17px;
   flex-direction: column;
@@ -85,6 +85,16 @@
   border-radius: 12px;
   background: rgba(0, 0, 0, 0.05);
 }
+
+.modal__icon-text-wrapper:hover {
+  border-radius: 12px;
+border: 1px solid var(--black, #2E2E2E);
+background: rgba(0, 0, 0, 0.10);
+
+
+}
+
+
 
 .modal__icon {
   width: 20px;
@@ -184,7 +194,6 @@
   opacity: 0.30000001192092896;
 
   margin-top: 32px;
-  margin-bottom: 32px;
 
   color: var(--white, #fff);
   text-align: center;
