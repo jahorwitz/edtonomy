@@ -1,3 +1,5 @@
+import bugIcon from "../../images/Bug.svg";
+import checkIcon from "../../images/Chevron-right.svg";
 import emailIcon from "../../images/Email.svg";
 import playIcon from "../../images/Play.svg";
 import Button, {
@@ -33,7 +35,7 @@ export const GetStartedCheckListButton = ({ onClick }) => {
   return (
     <Button.WithLink
       onClick={onClick}
-      icon={playIcon}
+      icon={checkIcon}
       to=""
       textBold="Getting started checklist"
       text="8 easy steps to get you on board"
@@ -45,7 +47,7 @@ export const ReportBugButton = ({ onClick }) => {
   return (
     <Button.WithLink
       onClick={onClick}
-      icon={playIcon}
+      icon={bugIcon}
       to=""
       textBold="Report a bug"
       text=""
