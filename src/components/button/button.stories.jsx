@@ -13,43 +13,43 @@ export default {
 //email support button
 export const EmailButton = ({ onClick }) => {
   return (
-    <Button onClick={onClick} style="border rounded-lg overflow-hidden">
-      <Button.WithIcon icon={emailIcon} text="Email support" />
-    </Button>
+    <Button.WithIcon onClick={onClick} icon={emailIcon} text="Email support" />
   );
 };
 //one button for getting started view
 export const GetStartedVideoButton = ({ onClick }) => {
   return (
-    <Button onClick={onClick} style="border border-black/30 rounded-lg p-4">
-      <Button.WithLink
-        icon={playIcon}
-        to=""
-        textBold="Get started with EdTonomy"
-        text="Watch our video tutorial"
-      />
-    </Button>
+    <Button.WithLink
+      onClick={onClick}
+      icon={playIcon}
+      to=""
+      textBold="Get started with EdTonomy"
+      text="Watch our video tutorial"
+    />
   );
 };
 
 export const GetStartedCheckListButton = ({ onClick }) => {
   return (
-    <Button onClick={onClick} style="border border-black/30 rounded-lg p-4">
-      <Button.WithLink
-        icon={playIcon}
-        to=""
-        textBold="Getting started checklist"
-        text="8 easy steps to get you on board"
-      />
-    </Button>
+    <Button.WithLink
+      onClick={onClick}
+      icon={playIcon}
+      to=""
+      textBold="Getting started checklist"
+      text="8 easy steps to get you on board"
+    />
   );
 };
 
 export const ReportBugButton = ({ onClick }) => {
   return (
-    <Button onClick={onClick} style="border border-black/30 rounded-lg p-4">
-      <Button.WithLink icon={playIcon} to="" textBold="Report a bug" text="" />
-    </Button>
+    <Button.WithLink
+      onClick={onClick}
+      icon={playIcon}
+      to=""
+      textBold="Report a bug"
+      text=""
+    />
   );
 };
 

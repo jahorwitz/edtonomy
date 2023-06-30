@@ -7,26 +7,30 @@ const Button = ({ onClick, style, children, ...rest }) => {
   );
 };
 //WithIcon renders within a button component
-Button.WithIcon = ({ icon, text }) => {
+Button.WithIcon = ({ onClick, icon, text }) => {
   return (
-    <div className="bg-black/5 px-9 py-1 flex flex-col items-center duration-300 text-xs leading-extra-tight font-medium font-inter hover:bg-black/10">
-      <img src={icon} className="w-6 h-6" />
-      {text}
-    </div>
+    <Button onClick={onClick} style="border rounded-lg overflow-hidden">
+      <div className="bg-black/5 px-9 py-1 flex flex-col items-center duration-300 text-xs leading-extra-tight font-medium font-inter hover:bg-black/10">
+        <img src={icon} className="w-6 h-6" />
+        {text}
+      </div>
+    </Button>
   );
 };
 //WithLink is the same as WithIcon but redirects onClick to a page
-Button.WithLink = ({ icon, to, textBold, text }) => {
+Button.WithLink = ({ onClick, icon, to, textBold, text }) => {
   return (
-    <div onClick={to} className="flex w-[363px]">
-      <div className="mr-auto font-inter">
-        <p className="text-edt-black text-xl font-medium">{textBold}</p>
-        <p className="text-base leading-extra-tight text-black/60 text-left">
-          {text}
-        </p>
+    <Button onClick={onClick} style="border border-black/30 rounded-lg p-4">
+      <div onClick={to} className="flex w-[363px]">
+        <div className="mr-auto font-inter">
+          <p className="text-edt-black text-xl font-medium">{textBold}</p>
+          <p className="text-base leading-extra-tight text-black/60 text-left">
+            {text}
+          </p>
+        </div>
+        <img src={icon} className="w-6 h-6 self-center" />
       </div>
-      <img src={icon} className="w-6 h-6 self-center" />
-    </div>
+    </Button>
   );
 };
 
