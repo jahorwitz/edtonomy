@@ -33,7 +33,7 @@ const WidgetContainer = () => {
     <div className="">
       <WidgetButton handleClick={handleButtonClick} label="Support" />
       {isOpen && (
-        <div className="bg-white widget-shadow pl-[24px] pr-[24px] pt-[32px] w-[411px] rounded-[12px] absolute right-[20px] bottom-[20.42px]">
+        <div className="bg-white shadow-slate-200 drop-shadow-md pl-[24px] pr-[24px] pt-[32px] w-[411px] rounded-[12px] absolute right-[20px] bottom-[20.42px]">
           <div className="flex justify-between items-center mb-[32px]">
             <div className="flex items-center gap-[16px]">
               <img
