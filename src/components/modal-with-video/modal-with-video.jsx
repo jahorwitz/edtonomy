@@ -1,9 +1,13 @@
 import cx from "classnames";
 import { useEffect, useRef, useState } from "react";
 import closeButton from "../../images/close-button.svg";
-import OpenModalButton from "./OpenModalButton";
 
-export default function ModalWithVideo({ className, ...rest }) {
+export const ModalWithVideo = ({
+  className,
+  OpenButton,
+  openButtonProps,
+  ...rest
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const youtubePlayerRef = useRef(null);
 
@@ -48,13 +52,7 @@ export default function ModalWithVideo({ className, ...rest }) {
 
   return (
     <>
-      {!isModalOpen && (
-        <OpenModalButton
-          openPopup={openPopup}
-          isModalOpen={isModalOpen}
-          setIsModalOpen={setIsModalOpen}
-        />
-      )}
+      {OpenButton && <OpenButton onClick={openPopup} {...openButtonProps} />}
       <div
         title="video-modal"
         onClick={handleOverlayClick}
@@ -62,11 +60,12 @@ export default function ModalWithVideo({ className, ...rest }) {
         className={cx(
           `${
             isModalOpen
-              ? "modal-opened absolute w-screen h-screen flex items-center justify-center bg-black bg-opacity-65 z-1"
+              ? "modal-opened absolute top-0 w-screen h-screen flex items-center justify-center bg-gray-950/[.5] z-1"
               : "hidden"
           }`,
           className
         )}
+        {...rest}
       >
         <div className="relative" title="video-player">
           <button
@@ -94,4 +93,4 @@ export default function ModalWithVideo({ className, ...rest }) {
       </div>
     </>
   );
-}
+};

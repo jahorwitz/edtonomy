@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Button from "./button";
+import { Button } from "./button";
 
 //Create a sample component with Button
 const TestButton = ({ onClick }) => {

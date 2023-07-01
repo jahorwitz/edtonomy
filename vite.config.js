@@ -6,7 +6,7 @@ import macrosPlugin from "vite-plugin-babel-macros";
 export default defineConfig({
   plugins: [react(), macrosPlugin()],
   server: {
-    port: 8000,
+    port: 3000,
   },
   test: {
     globals: true,
