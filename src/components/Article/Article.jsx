@@ -1,12 +1,19 @@
 import "./Article.css";
 
-export default function Article({ sidebar, content }) {
+import Footer from "../Article/Footer";
+import Header from "../Article/header";
+import SetupProfilePage from "./SetupProfilePage";
+import Sidebar from "./Sidebar";
+
+export default function Article() {
   return (
     <div className="article">
-      <div className="article__container">
-        <div className="sidebar">{sidebar}</div>
-        <div className="profile">{content}</div>
+      <Header />
+      <div className="sidebar__profile--container">
+        <Sidebar />
+        <SetupProfilePage />
       </div>
+      <Footer />
     </div>
   );
 }

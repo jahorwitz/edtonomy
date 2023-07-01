@@ -29,16 +29,7 @@ export default {
 
 export const article = () => (
   <div>
-    <Header />
-    <Article
-      sidebar={<Sidebar />}
-      content={
-        <>
-          <SetupProfilePage />
-        </>
-      }
-    />
-    <Footer />
+    <Article />
   </div>
 );
 

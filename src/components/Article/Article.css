@@ -16,11 +16,13 @@
   background: #ffffff;
 }
 
-.article__container {
+.sidebar__profile--container {
   display: flex;
   flex-direction: row;
 
   align-items: baseline;
+
+ 
 }
 
 /*header*/
@@ -335,3 +337,5 @@ margin-top: 20px;
 
   gap: 12px;
 }
+
+
