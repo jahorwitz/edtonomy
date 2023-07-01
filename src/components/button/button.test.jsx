@@ -11,7 +11,7 @@ const TestButton = ({ onClick }) => {
 };
 //Render sample component and check for text
 test("render button", () => {
-  render(<TestButton onClick={true} />);
+  render(<TestButton onClick={() => true} />);
 
   const element = screen.getByText(/test/i);
 
