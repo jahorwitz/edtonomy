@@ -33,5 +33,6 @@ Default.args = {
       labelText={"Is this Ok?"}
       placeholder={"Yes It is "}
     />,
+    <Form.SubmitButton selected={false} text="Send Report" />,
   ],
 };

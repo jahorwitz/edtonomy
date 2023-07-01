@@ -37,8 +37,11 @@ Button.WithLink = ({ onClick, icon, to, textBold, text }) => {
 
 export const PrimaryButton = ({ onClick, text }) => {
   return (
-    <Button onClick={onClick} style="border rounded-lg overflow-hidden">
-      <div className="bg-edt-red px-32 py-4 duration-300 text-xl leading-extra-tight text-white font-medium font-inter hover:bg-edt-dark-red">
+    <Button
+      onClick={onClick}
+      // style="border rounded-lg overflow-hidden"
+    >
+      <div className="border rounded-lg overflow-hidden bg-edt-red px-32 py-4 duration-300 text-xl leading-extra-tight text-white font-medium font-inter hover:bg-edt-dark-red">
         {text}
       </div>
     </Button>
