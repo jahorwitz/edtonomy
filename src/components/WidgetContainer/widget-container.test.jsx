@@ -10,7 +10,7 @@ test("clicking the support button shows the widget", async () => {
   // Simulate a click on the support button
   fireEvent.click(screen.getByText("Support"));
 
-  // Wait for the animation to complete and the widget to be visible
+  // Wait for the animation to complete and the widget to be visible.
   await waitFor(() => {
     expect(screen.getByText("Welcom, Carlo!")).toBeInTheDocument();
   });
