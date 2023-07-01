@@ -1,8 +1,9 @@
-import bugIcon from "../../images/Bug.svg";
-import checkIcon from "../../images/Chevron-right.svg";
-import emailIcon from "../../images/Email.svg";
-import playIcon from "../../images/Play.svg";
-import Button, {
+import bugIcon from "../../images/bug.svg";
+import checkIcon from "../../images/chevron-right.svg";
+import emailIcon from "../../images/email.svg";
+import playIcon from "../../images/play.svg";
+import {
+  Button,
   PrimaryButton,
   SecondaryOutlineButton,
   SecondarySelectedButton,

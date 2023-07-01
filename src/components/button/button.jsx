@@ -1,5 +1,5 @@
 // Button component has flexible style argument as well as onClick, children and button attributes
-const Button = ({ onClick, style, children, ...rest }) => {
+export const Button = ({ onClick, style, children, ...rest }) => {
   return (
     <button onClick={onClick} className={style} {...rest}>
       {children}
@@ -17,11 +17,12 @@ Button.WithIcon = ({ onClick, icon, text }) => {
     </Button>
   );
 };
-//WithLink is the same as WithIcon but redirects onClick to a page
+//WithLink is the same as WithIcon but routes to a page
+// TODO: Implement routing on this component using 'to'
 Button.WithLink = ({ onClick, icon, to, textBold, text }) => {
   return (
     <Button onClick={onClick} style="border border-black/30 rounded-lg p-4">
-      <div onClick={to} className="flex w-[363px]">
+      <div className="flex w-[363px]">
         <div className="mr-auto font-inter">
           <p className="text-edt-black text-xl font-medium">{textBold}</p>
           <p className="text-base leading-extra-tight text-black/60 text-left">
@@ -68,5 +69,3 @@ export const SecondarySelectedButton = ({ onClick, selected, text }) => {
     </Button>
   );
 };
-
-export default Button;
