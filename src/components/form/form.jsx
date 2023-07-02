@@ -41,19 +41,39 @@ Form.TextArea = ({ className, labelText, id, ...rest }) => {
   );
 };
 
-Form.SubmitButton = ({ onSubmit, selected, text }) => {
+Form.Submit = ({ onSubmit, selected, text }) => {
   return (
     <button>
       <PrimaryButton
         onClick={onSubmit}
         selected={selected}
         text={text}
-        className={selected ? "opacity-60" : ""}
+        className={cx(selected ? "opacity-60" : "")}
       >
         {text}
       </PrimaryButton>
     </button>
   );
+};
+
+Form.RadioButtonGroup = () => {
+  <ul className={cx("")}>
+    <li>
+      <button type="radio"></button>
+    </li>
+    <li>
+      <button type="radio"></button>
+    </li>
+    <li>
+      <button type="radio"></button>
+    </li>
+    <li>
+      <button type="radio"></button>
+    </li>
+    <li>
+      <button type="radio"></button>
+    </li>
+  </ul>;
 };
 
 Form.TextArea.displayName = "Form.TextArea";

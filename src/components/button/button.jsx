@@ -72,3 +72,21 @@ export const SecondarySelectedButton = ({ onClick, selected, text }) => {
     </Button>
   );
 };
+
+export const RadioButton = ({ selected, icon, message }) => {
+  const radioBtnClass = ``;
+
+  {
+    selected ? (
+      <button type="radio" className={radioBtnClass} selected={selected}>
+        <img src={icon} alt={message} />
+      </button>
+    ) : (
+      <>
+        <button>
+          <img src={icon} />
+        </button>
+      </>
+    );
+  }
+};
