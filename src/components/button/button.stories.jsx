@@ -5,6 +5,7 @@ import playIcon from "../../images/play.svg";
 import {
   Button,
   PrimaryButton,
+  RadioButton,
   SecondaryOutlineButton,
   SecondarySelectedButton,
 } from "./button";
@@ -70,4 +71,11 @@ export const YesSelectedButton = ({ onClick }) => (
 
 export const YesNotSelectedButton = ({ onClick }) => (
   <SecondarySelectedButton onClick={onClick} selected={false} text="Yes" />
+);
+
+export const RadioButtonUnselected = ({ onClick }) => (
+  <RadioButton onClick={onClick} />
+);
+export const RadioButtonSelected = ({ onClick }) => (
+  <RadioButton onClick={onClick} style="border-black" />
 );

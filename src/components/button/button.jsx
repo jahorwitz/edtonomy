@@ -1,3 +1,5 @@
+import cx from "classnames";
+
 // Button component has flexible style argument as well as onClick, children and button attributes
 export const Button = ({ onClick, style, children, ...rest }) => {
   return (
@@ -73,20 +75,16 @@ export const SecondarySelectedButton = ({ onClick, selected, text }) => {
   );
 };
 
-export const RadioButton = ({ selected, icon, message }) => {
-  const radioBtnClass = ``;
-
-  {
-    selected ? (
-      <button type="radio" className={radioBtnClass} selected={selected}>
-        <img src={icon} alt={message} />
-      </button>
-    ) : (
-      <>
-        <button>
-          <img src={icon} />
-        </button>
-      </>
-    );
-  }
+export const RadioButton = ({ icon, description, style }) => {
+  return (
+    <button
+      type="radio"
+      className={cx(
+        `w-20 h-20 bg-transparent border border-grey-500 rounded-md`,
+        style
+      )}
+    >
+      <img src={icon} alt={description} />
+    </button>
+  );
 };
