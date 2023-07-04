@@ -75,16 +75,26 @@ export const SecondarySelectedButton = ({ onClick, selected, text }) => {
   );
 };
 
-export const RadioButton = ({ icon, description, style }) => {
+export const RadioButton = ({ icon, description, style, text }) => {
   return (
     <button
       type="radio"
       className={cx(
-        `w-20 h-20 bg-transparent border border-grey-500 rounded-md`,
+        "bg-transparent border border-grey-500 rounded-md flex flex-col",
         style
       )}
     >
-      <img src={icon} alt={description} />
+      <div
+        className={cx(
+          "w-[68px] h-[54px] flex flex-col justify-center items-center",
+          style
+        )}
+      >
+        <img src={icon} alt={description} className={cx("w-[20px]", style)} />
+        <p className={cx("flex flex-col justify-center items-center", style)}>
+          {text}
+        </p>
+      </div>
     </button>
   );
 };

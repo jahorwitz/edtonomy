@@ -1,6 +1,11 @@
 import bugIcon from "../../images/bug.svg";
 import checkIcon from "../../images/chevron-right.svg";
 import emailIcon from "../../images/email.svg";
+import Awful from "../../images/Emotion=Awful.svg";
+import Good from "../../images/Emotion=Good.svg";
+import Great from "../../images/Emotion=Great.svg";
+import Okay from "../../images/Emotion=Okay.svg";
+import Soso from "../../images/Emotion=So-so.svg";
 import playIcon from "../../images/play.svg";
 import {
   Button,
@@ -74,8 +79,52 @@ export const YesNotSelectedButton = ({ onClick }) => (
 );
 
 export const RadioButtonUnselected = ({ onClick }) => (
-  <RadioButton onClick={onClick} />
+  <RadioButton onClick={onClick} icon={Good} text="Good" />
 );
 export const RadioButtonSelected = ({ onClick }) => (
-  <RadioButton onClick={onClick} style="border-black" />
+  <RadioButton onClick={onClick} style="border-black" icon={Good} text="Good" />
 );
+
+export const RadioButtonGroup = ({}) => {
+  return (
+    <ul>
+      <li>
+        <RadioButton icon={Great} />
+      </li>
+      <li>
+        <RadioButton icon={Good} />
+      </li>
+      <li>
+        <RadioButton icon={Okay} />
+      </li>
+      <li>
+        <RadioButton icon={Soso} />
+      </li>
+      <li>
+        <RadioButton icon={Awful} />
+      </li>
+    </ul>
+  );
+};
+
+export const RadioButtonGroupSelected = ({}) => {
+  return (
+    <ul>
+      <li>
+        <RadioButton icon={Great} />
+      </li>
+      <li>
+        <RadioButton icon={Good} />
+      </li>
+      <li>
+        <RadioButton icon={Okay} style="border-black" />
+      </li>
+      <li>
+        <RadioButton icon={Soso} />
+      </li>
+      <li>
+        <RadioButton icon={Awful} />
+      </li>
+    </ul>
+  );
+};
