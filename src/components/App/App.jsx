@@ -1,6 +1,6 @@
 import "./App.css";
 
-import Article from "../Article/Article";
+import Article from "../Article/article";
 
 export default function App() {
   return (

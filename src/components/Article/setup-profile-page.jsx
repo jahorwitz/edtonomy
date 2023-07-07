@@ -1,7 +1,7 @@
 import image6 from "../../image/image6.png";
-import Questionnaire from "./Questionnaire";
+import Questionnaire from "./questionnaire";
 
-export default function SetupProfilePage({ questionnaire }) {
+export default function SetupProfilePage() {
   return (
     <div className="profile">
       <div className="profile__container">

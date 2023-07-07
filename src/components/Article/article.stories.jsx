@@ -1,10 +1,10 @@
-import Article from "./Article";
-import Footer from "./Footer";
+import Article from "./article";
+import Footer from "./footer";
 import Header from "./header";
 import SetupProfilePage from "./SetupProfilePage";
-import Sidebar from "./Sidebar";
+import Sidebar from "./sidebar";
 
-import Questionnaire from "./Questionnaire";
+import Questionnaire from "./questionnaire";
 
 /*
 storiesOf("Article", module)

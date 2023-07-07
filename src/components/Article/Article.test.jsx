@@ -1,5 +1,5 @@
 import { fireEvent, render } from "@testing-library/react";
-import Questionnaire from "./Questionnaire";
+import Questionnaire from "./questionnaire";
 
 test('handles "Yes" button click', () => {
   const { getByText, queryByText } = render(<Questionnaire />);

@@ -1,9 +1,9 @@
 import "./Article.css";
 
-import Footer from "../Article/Footer";
-import Header from "../Article/header";
-import SetupProfilePage from "./SetupProfilePage";
-import Sidebar from "./Sidebar";
+import Footer from "./footer";
+import Header from "./header";
+import SetupProfilePage from "./setup-profile-page";
+import Sidebar from "./sidebar";
 
 export default function Article() {
   return (
