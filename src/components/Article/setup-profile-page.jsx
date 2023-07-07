@@ -4,29 +4,33 @@ import Questionnaire from "./questionnaire";
 export default function SetupProfilePage() {
   return (
     <div className="profile">
-      <div className="profile__container">
-        <h1 className="profile__title">How to Set Up Your Profile</h1>
-        <p className="profile__paragraph profile__paragraph-1">
+      <div className="font-inter text-edt-black ml-149 w-672 h-2060 absolute flex flex-col items-start">
+        <h1 className="font-bold text-5xl leading-100">
+          How to Set Up Your Profile
+        </h1>
+        <p className="font-normal text-xl leading-130 mt-10">
           Setting up a profile can be a great way to introduce yourself to the
           world and make connections with others who share your interests or
           goals. Whether you're creating a profile for a social media platform,
           a professional networking site, or a dating app, the process can be
           relatively straightforward.
         </p>
-        <h2 className="profile__subheading profile__subheading-1">
+        <h2 className="font-semibold text-3xl leading-130 mt-16">
           Steps to follow to set up a profile
         </h2>
-        <p className="profile__paragraph profile__paragraph-2">
+        <p className="font-normal text-xl leading-130 mt-5">
           Choose a platform: There are many different platforms out there for
           creating a profile, so choose one that fits your needs and interests.
           For example, if you're looking to network professionally, you might
           want to use LinkedIn. If you're looking to connect with friends and
           family, Facebook might be the right choice.
         </p>
-        <img className="profile__image" src={image6} alt="logo" />
-        <span className="profile__image-caption">Image caption</span>
+        <img className="mt-5" src={image6} alt="logo" />
+        <span className="font-normal text-base leading-100 mt-3">
+          Image caption
+        </span>
 
-        <ol className="profile__list">
+        <ol className="list-decimal font-normal text-xl leading-130 flex flex-col gap-2.5 mt-10">
           <li>
             Create an account: Once you've chosen a platform, create an account
             by providing your basic information such as your name, email
@@ -56,16 +60,16 @@ export default function SetupProfilePage() {
         </ol>
 
         <div className="profile__steps-contanier">
-          <h2 className="profile__subheading profile__subheading-2">
+          <h2 className="font-semibold text-3xl leading-130 mt-16">
             Final Steps
           </h2>
-          <ol className="profile__steps">
+          <ol className="list-disc font-normal text-xl leading-130 flex flex-col gap-2.5 mt-5 mb-16">
             <li>Do this</li>
             <li>That</li>
             <li>And this</li>
           </ol>
 
-          <span className="profile__bottom-line"></span>
+          <span className="absolute w-906 h-px border-b border-black border-opacity-40 -ml-32"></span>
         </div>
 
         <div className="questionnaire">

@@ -1,7 +1,7 @@
 import Article from "./article";
 import Footer from "./footer";
 import Header from "./header";
-import SetupProfilePage from "./SetupProfilePage";
+import SetupProfilePage from "./setup-profile-page";
 import Sidebar from "./sidebar";
 
 import Questionnaire from "./questionnaire";

@@ -7,9 +7,9 @@ import Sidebar from "./sidebar";
 
 export default function Article() {
   return (
-    <div className="article">
+    <div className="bg-white">
       <Header />
-      <div className="sidebar__profile--container">
+      <div className="flex flex-row items-baseline">
         <Sidebar />
         <SetupProfilePage />
       </div>

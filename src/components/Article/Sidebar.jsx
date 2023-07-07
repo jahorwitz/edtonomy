@@ -1,15 +1,13 @@
 export default function Sidebar() {
   return (
-    <div className="sidebar">
-      <div className="sidebar__container">
-        <div className="sidebar__header">
-          <h1 className="sidebar__header-1">Getting started checklist</h1>
-          <h2 className="sidebar__header-2">
-            8 easy steps to get you on board
-          </h2>
+    <div className="border-r border-black border-opacity-40 w-352 h-2060">
+      <div className="font-inter font-normal text-base leading-120 text-black pt-8 pl-8">
+        <div>
+          <h1 className="font-semibold text-lg">Getting started checklist</h1>
+          <h2 className="pt-2">8 easy steps to get you on board</h2>
         </div>
-        <nav className="sidebar__navigation">
-          <ul className="sidebar__list">
+        <nav className="pt-8">
+          <ul className="flex flex-col gap-6 w-268 h-468">
             <li>
               <a href="#section-1">Setup your profile</a>
             </li>

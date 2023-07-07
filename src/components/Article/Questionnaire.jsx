@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { SecondaryOutlineButton } from "../button/button";
+
 export default function Questionnaire() {
   const [feedbackSubmittedYes, setFeedbackSubmittedYes] = useState(false);
   const [feedbackSubmittedNo, setFeedbackSubmittedNo] = useState(false);
@@ -25,54 +27,52 @@ export default function Questionnaire() {
   };
 
   return (
-    <div className="questionnaire__container">
+    <div className="mt-16">
       {feedbackSubmittedYes ? (
-        <h1 className="questionnaire__title">We're glad it was useful</h1>
+        <h1 className="text-black text-2xl font-inter font-semibold leading-130%">
+          We're glad it was useful
+        </h1>
       ) : (
         <>
           {!feedbackSubmittedNo && (
             <>
-              <h1 className="questionnaire__title">
+              <h1 className="text-black text-2xl font-inter font-semibold leading-130%">
                 Was this article helpful?
               </h1>
-              <div className="questionnaire__buttons">
-                <button
-                  className="questionnaire__button"
+              <div className="flex flex-row gap-5 mt-5">
+                <SecondaryOutlineButton
                   onClick={handleYesButtonClick}
-                >
-                  Yes
-                </button>
-                <button
-                  className="questionnaire__button"
+                  text="Yes"
+                />
+                <SecondaryOutlineButton
                   onClick={handleNoButtonClick}
-                >
-                  No
-                </button>
+                  text="No"
+                />
               </div>
             </>
           )}
           {feedbackSubmittedNo && !formSubmit && (
             <>
-              <h1 className="questionnaire__title">What was unclear?</h1>
-              <form
-                className="questionnare__feedback-form"
-                onSubmit={handleFormSubmit}
-              >
+              <h1 className="text-black text-2xl font-inter font-semibold leading-130%">
+                What was unclear?
+              </h1>
+              <form className="flex flex-col mt-5" onSubmit={handleFormSubmit}>
                 <input
-                  className="feedback__form-input"
+                  className="w-363 h-105 rounded-md border border-black-40 bg-white mb-5"
                   type="text"
                   value={feedbackText}
                   onChange={(e) => setFeedbackText(e.target.value)}
                   placeholder="Tell us"
                 />
-                <button className="questionnaire__submit" type="submit">
-                  Submit
-                </button>
+
+                <SecondaryOutlineButton text="Submit" type="submit" />
               </form>
             </>
           )}
           {formSubmit && (
-            <h1 className="questionnaire__title">Thanks for your feedback</h1>
+            <h1 className="text-black text-2xl font-inter font-semibold leading-130%">
+              Thanks for your feedback
+            </h1>
           )}
         </>
       )}
