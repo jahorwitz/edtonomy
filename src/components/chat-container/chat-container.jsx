@@ -1,3 +1,5 @@
+// The component ChatContainer is a container for a chat service
+// Takes children to pass any content,onChatNow and OnConversations are functions that can be modified for convinience,and isChatActive to control the state to verify if there is any conversation active
 const ChatContainer = ({
   children,
   onChatNow,
@@ -24,7 +26,21 @@ const ChatContainer = ({
           Conversations
         </button>
         <div className="bg-[#FFFFFF] h-[100%] rounded-[12px] ">
-          {isChatActive ? <div>{children}</div> : <div className="flex flex-col items-center h-[300px] "><h2 className="mt-[40px] mb-[40px] font-bold text-lg">This is embedded interface</h2><img className="w-[200px] mb-[40px] opacity-[0.3]" src="/src/images/pixel-speech-bubble.png"/><p className="opacity-[0.3]">No ongoing conversation</p></div>}
+          {/* here isChatActive is check to verify if there is any active chats  */}
+          {isChatActive ? (
+            <div>{children}</div>
+          ) : (
+            <div className="flex flex-col items-center h-[300px] ">
+              <h2 className="mt-[40px] mb-[40px] font-bold text-lg">
+                This is embedded interface
+              </h2>
+              <img
+                className="w-[200px] mb-[40px] opacity-[0.3]"
+                src="/src/images/pixel-speech-bubble.png"
+              />
+              <p className="opacity-[0.3]">No ongoing conversation</p>
+            </div>
+          )}
 
           <button
             className="bg-[#ED6647] flex flex-row items-center ml-[auto] mr-[auto] rounded-[5px] w-[125px] h-[35px] justify-center text-white"
