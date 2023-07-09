@@ -1,7 +1,7 @@
 import ChatContainer from "./chat-container";
 export default {
   component: ChatContainer,
-  title: "chat container",
+  title: "ChatContainer",
 };
 const Template = (args) => {
   return <ChatContainer {...args} />;
