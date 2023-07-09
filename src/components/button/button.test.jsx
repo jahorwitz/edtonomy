@@ -3,11 +3,7 @@ import { Button } from "./button";
 
 //Create a sample component with Button
 const TestButton = ({ onClick }) => {
-  return (
-    <Button onClick={onClick} style="">
-      Test
-    </Button>
-  );
+  return <Button onClick={onClick}>Test</Button>;
 };
 //Render sample component and check for text
 test("render button", () => {
