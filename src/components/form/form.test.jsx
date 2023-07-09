@@ -4,7 +4,7 @@ describe("Form Component", () =>
   test("form renders with textboxes and a submit button", () => {
     render(
       <Form data-testid="form">
-        <Form.TextArea data-testId="textbox" />
+        <Form.TextArea register={() => ({})} data-testId="textbox" />
         <button data-testId="submit-button"></button>
       </Form>
     );

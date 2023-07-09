@@ -1,30 +1,17 @@
 import cx from "classnames";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import Awful from "../../images/Emotion=Awful.svg";
-import Good from "../../images/Emotion=Good.svg";
-import Great from "../../images/Emotion=Great.svg";
-import Okay from "../../images/Emotion=Okay.svg";
-import Soso from "../../images/Emotion=So-so.svg";
-import { PrimaryButton, RadioButton } from "../button/button";
+import { PrimaryButton, RadioButton } from "../button";
 //commented out the line above because it had import problems --Cristopher Campos
 // the Form component take as argument the children elements, an onSubmit function and atributes for a form tag.
 export const Form = ({ className, children, onSubmit, ...rest }) => {
-  const {
-    handleSubmit,
-    // formState: { errors },
-  } = useForm();
   return (
     // form element
-    <form className={className} onSubmit={handleSubmit(onSubmit)} {...rest}>
+    <form className={className} onSubmit={onSubmit} {...rest}>
       {children}
     </form>
   );
 };
 // the Form.TextArea element take as argument props and htmlInputElement
-Form.TextArea = ({ className, labelText, id, ...rest }) => {
-  // the register function from recat-hook-form is been call here
-  const { register } = useForm();
+Form.TextArea = ({ className, labelText, id, register, ...rest }) => {
   return (
     <>
       <div className={cx("flex flex-col", className)}>
@@ -40,89 +27,37 @@ Form.TextArea = ({ className, labelText, id, ...rest }) => {
           type="text"
           {...rest}
           //registering the name for the text are in the hook
-          {...register("Form-TextArea")}
+          {...register(id)}
         />
       </div>
     </>
   );
 };
 
-Form.Submit = ({ onSubmit, selected, text }) => {
-  return (
-    <PrimaryButton
-      onClick={onSubmit}
-      selected={selected}
-      text={text}
-      className={cx(selected ? "opacity-60" : "")}
-    >
-      {text}
-    </PrimaryButton>
-  );
+Form.Submit = ({ children }) => {
+  return <PrimaryButton type="submit">{children}</PrimaryButton>;
 };
 
-Form.RadioButton = ({}) => {
-  return <RadioButton selected={false} icon={Good} />;
-};
-
-Form.RadioButtonGroup = ({ className }) => {
-  const [selected, setSelected] = useState(null);
-
-  const handleSelection = (value) => {
-    setSelected(value);
-  };
+Form.RadioButtonGroup = ({ className, id, options, setValue, watch }) => {
+  const selected = watch(id);
 
   return (
     <ul className={cx("", className)}>
-      <li>
-        <RadioButton
-          className={`${selected === "Great" ? "border-black" : ""}`}
-          selected={selected === "Great"}
-          icon={Great}
-          onClick={() => handleSelection("Great")}
-          description="Great"
-        />
-      </li>
-      <li>
-        <RadioButton
-          className={`${selected === "Good" ? "border-black" : ""}`}
-          selected={selected === "Good"}
-          icon={Good}
-          onClick={() => handleSelection("Good")}
-          description="Good"
-        />
-      </li>
-      <li>
-        <RadioButton
-          className={`${selected === "Okay" ? "border-black" : ""}`}
-          selected={selected === "Okay"}
-          icon={Okay}
-          onClick={() => handleSelection("Okay")}
-          description="Okay"
-        />
-      </li>
-      <li>
-        <RadioButton
-          className={`${selected === "So-so" ? "border-black" : ""}`}
-          selected={selected === "So-so"}
-          icon={Soso}
-          onClick={() => handleSelection("So-so")}
-          description="So-so"
-        />
-      </li>
-      <li>
-        <RadioButton
-          className={`${selected === "Awful" ? "border-black" : ""}`}
-          selected={selected === "Awful"}
-          icon={Awful}
-          onClick={() => handleSelection("Awful")}
-          description="Awful"
-        />
-      </li>
+      {options.map((option) => (
+        <li key={option.value}>
+          <RadioButton
+            className={`${selected === option.value ? "border-black" : ""}`}
+            icon={option.Icon}
+            onClick={() => setValue(id, option.value)}
+            text={option.text}
+            selected={selected === option.value}
+          />
+        </li>
+      ))}
     </ul>
   );
 };
 
 Form.TextArea.displayName = "Form.TextArea";
 Form.Submit.displayName = "Form.Submit";
-Form.RadioButton.displayName = "Form.RadioButton";
 Form.RadioButtonGroup.displayName = "Form.RadioButtonGroup";
