@@ -83,7 +83,7 @@
   flex-shrink: 0;
 
   border-radius: 12px;
-  background: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .modal__icon-text-wrapper:hover {
@@ -184,14 +184,14 @@ background: rgba(0, 0, 0, 0.10);
 }
 
 .modal__form-submit {
-  width: 371px;
-  height: 56px;
+  width: 372px;
+  height: 54px;
   flex-shrink: 0;
 
   border-radius: 8px;
   background: var(--ed-t-red, #ff533d);
 
-  opacity: 0.30000001192092896;
+  opacity: 0.3;
 
   margin-top: 32px;
 
