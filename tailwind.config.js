@@ -13,6 +13,9 @@ export default {
       },
       fontFamily: {
         'inter': ['Inter', 'Arial', 'sans-serif'],
+      },
+      backgroundImage: {
+        'close-icon': "url(/src/assests/closeIcon.svg)",
       }
     },
   },

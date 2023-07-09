@@ -4,7 +4,7 @@ import { Button } from "./button";
 //Create a sample component with Button
 const TestButton = ({ onClick }) => {
   return (
-    <Button onClick={onClick} style="">
+    <Button onClick={onClick} className="">
       Test
     </Button>
   );
