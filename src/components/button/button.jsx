@@ -37,12 +37,17 @@ Button.WithLink = ({ onClick, icon, to, textBold, text }) => {
   );
 };
 
-export const PrimaryButton = ({ onClick, children, ...rest }) => {
+export const PrimaryButton = ({ onClick, children, className, ...rest }) => {
   return (
-    <Button onClick={onClick} {...rest}>
-      <div className="border rounded-lg overflow-hidden bg-edt-red px-32 py-4 duration-300 text-xl leading-extra-tight text-white font-medium font-inter hover:bg-edt-dark-red">
-        {children}
-      </div>
+    <Button
+      onClick={onClick}
+      className={cx(
+        className,
+        "border rounded-lg overflow-hidden bg-edt-red px-32 py-4 duration-300 text-xl leading-extra-tight text-white font-medium font-inter hover:bg-edt-dark-red"
+      )}
+      {...rest}
+    >
+      {children}
     </Button>
   );
 };

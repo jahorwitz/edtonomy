@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { closeIcon, profile } from "../../assests/index";
-import { WidgetButton } from "../WidgetButton/widget-button";
+import { PrimaryButton } from "../button";
 
 const WidgetContainer = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,8 +31,14 @@ const WidgetContainer = () => {
   };
   return (
     <div className="">
-      <WidgetButton handleClick={handleButtonClick} label="Support" />
-      {isOpen && (
+      {!isOpen ? (
+        <PrimaryButton
+          onClick={handleButtonClick}
+          className="absolute bottom-8 right-10 px-4 pt-3 pb-4 font-['Mali']"
+        >
+          Support
+        </PrimaryButton>
+      ) : (
         <div className="bg-white shadow-slate-200 drop-shadow-md pl-[24px] pr-[24px] pt-[32px] w-[411px] rounded-[12px] absolute right-[20px] bottom-[20.42px]">
           <div className="flex justify-between items-center mb-[32px]">
             <div className="flex items-center gap-[16px]">
@@ -41,7 +47,7 @@ const WidgetContainer = () => {
                 alt="widget-avatar"
                 className="w-[52px] h-[52px]"
               />
-              <h1 className="font-bold text-[28px]">Welcom, Carlo!</h1>
+              <h1 className="font-bold text-[28px]">Welcome, Carlo!</h1>
             </div>
             <button>
               <img
