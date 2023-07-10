@@ -1,4 +1,4 @@
-import ChatContainer from "./chat-container";
+import { ChatContainer } from "./chat-container";
 export default {
   component: ChatContainer,
   title: "ChatContainer",

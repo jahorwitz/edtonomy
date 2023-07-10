@@ -23,7 +23,7 @@ Form.TextArea = ({ className, labelText, id, register, ...rest }) => {
         </label>
         <textarea
           id={id}
-          className="max-w-[363px] h-[105px] text-black font-medium leading-[120%] text-[1rem] pl-[12px] pt-[12px] pr-[12px] resize-none mt-[16px] mb-[24px] border border-solid border-black/[0.4] rounded-lg "
+          className="h-[105px] text-black font-medium leading-[120%] text-[1rem] pl-[12px] pt-[12px] pr-[12px] resize-none mt-[16px] mb-[24px] border border-solid border-black/[0.4] rounded-lg "
           type="text"
           {...rest}
           //registering the name for the text are in the hook

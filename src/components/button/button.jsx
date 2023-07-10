@@ -1,17 +1,25 @@
 import cx from "classnames";
 
 // Button component has flexible style argument as well as onClick, children and button attributes
-export const Button = ({ onClick, className, children, ...rest }) => {
-  return (
+export const Button = ({ onClick, className, children, href, ...rest }) => {
+  return href ? (
+    <a href={href} className={className} {...rest}>
+      {children}
+    </a>
+  ) : (
     <button onClick={onClick} className={className} type="button" {...rest}>
       {children}
     </button>
   );
 };
 //WithIcon renders within a button component
-Button.WithIcon = ({ onClick, icon, text }) => {
+Button.WithIcon = ({ onClick, icon, text, ...rest }) => {
   return (
-    <Button onClick={onClick} className="border rounded-lg overflow-hidden">
+    <Button
+      onClick={onClick}
+      className="border rounded-lg overflow-hidden"
+      {...rest}
+    >
       <div className="bg-black/5 px-9 py-3 flex flex-col items-center duration-300 text-xs leading-extra-tight font-medium font-inter hover:bg-black/10">
         <img src={icon} className="w-6 h-6" />
         {text}
@@ -45,7 +53,7 @@ export const PrimaryButton = ({ onClick, children, className, ...rest }) => {
       onClick={onClick}
       className={cx(
         className,
-        "border rounded-lg overflow-hidden bg-edt-red px-32 py-4 duration-300 text-xl leading-extra-tight text-white font-medium font-inter hover:bg-edt-dark-red"
+        "border rounded-lg w-full overflow-hidden bg-edt-red py-4 duration-300 text-xl leading-extra-tight text-white font-medium font-inter hover:bg-edt-dark-red"
       )}
       {...rest}
     >
@@ -58,8 +66,7 @@ export const SecondaryOutlineButton = ({ onClick, children }) => {
   return (
     <Button
       onClick={onClick}
-      className="border-2 border-edt-black rounded-lg overflow-hidden w-20 h-12 duration-300 text-xl 
-        leading-extra-tight font-medium font-inter hover:border-0 hover:bg-edt-red hover:text-white"
+      className="border-2 border-edt-black rounded-lg overflow-hidden w-20 h-12 duration-300 text-xl leading-extra-tight font-medium font-inter hover:border-0 hover:bg-edt-red hover:text-white"
     >
       {children}
     </Button>
