@@ -12,7 +12,7 @@ export const Button = ({ onClick, className, children, ...rest }) => {
 Button.WithIcon = ({ onClick, icon, text }) => {
   return (
     <Button onClick={onClick} className="border rounded-lg overflow-hidden">
-      <div className="bg-black/5 px-9 py-1 flex flex-col items-center duration-300 text-xs leading-extra-tight font-medium font-inter hover:bg-black/10">
+      <div className="bg-black/5 px-9 py-3 flex flex-col items-center duration-300 text-xs leading-extra-tight font-medium font-inter hover:bg-black/10">
         <img src={icon} className="w-6 h-6" />
         {text}
       </div>
@@ -24,9 +24,11 @@ Button.WithIcon = ({ onClick, icon, text }) => {
 Button.WithLink = ({ onClick, icon, to, textBold, text }) => {
   return (
     <Button onClick={onClick} className="border border-black/30 rounded-lg p-4">
-      <div className="flex w-[363px]">
+      <div className="flex">
         <div className="mr-auto font-inter">
-          <p className="text-edt-black text-xl font-medium">{textBold}</p>
+          <p className="text-left text-edt-black text-xl font-medium">
+            {textBold}
+          </p>
           <p className="text-base leading-extra-tight text-black/60 text-left">
             {text}
           </p>
@@ -86,3 +88,10 @@ export const RadioButton = ({ className, icon, text, onClick, selected }) => {
     </Button>
   );
 };
+
+Button.displayName = "Button";
+Button.WithIcon.displayName = "Button.WithIcon";
+Button.WithLink.displayName = "Button.WithLink";
+PrimaryButton.displayName = "PrimaryButton";
+SecondaryOutlineButton.displayName = "SecondaryOutlineButton";
+RadioButton.displayName = "RadioButton";
