@@ -8,26 +8,28 @@ import Great from "../../image/Emotion-Great.svg";
 import Okay from "../../image/Emotion-Okay.svg";
 import So_so from "../../image/Emotion-So-so.svg";
 
-import { Button, RadioButton } from "../button/button";
+import { Button,RadioButton } from "../button/button";
 
 import { useForm } from "react-hook-form";
 import { Form } from "../../components/form/form";
 
 export default function NpsFormModal() {
-  const [feedbackSubmittedYes, setFeedbackSubmittedYes] = useState(false);
-  const [feedbackSubmittedNo, setFeedbackSubmittedNo] = useState(false);
-  const [npsButtonClicked, setNpsButtonClicked] = useState(false);
+  const [feedbackSubmittedYes, setFeedbackSubmittedYes] = useState(false); /*If yes is clicked */
+  const [feedbackSubmittedNo, setFeedbackSubmittedNo] = useState(false); /*If no is clicked */
+  const [npsButtonClicked, setNpsButtonClicked] = useState(false); /*If one of the nps button is clicked */
 
-  const [feedbackText, setFeedbackText] = useState("");
+  const [feedbackText, setFeedbackText] = useState(""); /*Sets values in textarea to none */
 
   const [formSubmit, setFormSubmit] = useState(false);
 
-  const [isFeedbackValid, setIsFeedbackValid] = useState(false);
+
+  const [isFeedbackValid, setIsFeedbackValid] = useState(false); /*If there is input inside the textarea */
 
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   const [isModalOpen, setIsModalOpen] = useState(true);
 
+  /*Checks if the yes button is clicked before submitting */
   const handleYesButtonClick = (e) => {
     e.preventDefault();
 
@@ -35,8 +37,10 @@ export default function NpsFormModal() {
     setFeedbackSubmittedNo(false);
 
     setIsFeedbackValid(true);
-    setFeedbackText("");
+    setFeedbackText(""); /*If user presses no, then yes, it will reset/remove any input the textarea */
   };
+
+  /*Checks if the no button is clicked before submitting */
 
   const handleNoButtonClick = () => {
     setFeedbackSubmittedNo(true);
@@ -45,12 +49,11 @@ export default function NpsFormModal() {
     setIsFeedbackValid(false);
   };
 
+  /*Checks if there is any input inside the textArea before submitting */
   const handleFeedbackInputChange = (e) => {
     const inputText = e.target.value;
     setFeedbackText(inputText);
     setIsFeedbackValid(inputText.trim().length > 0);
-
-    console.log(isFeedbackValid);
   };
 
   /*
