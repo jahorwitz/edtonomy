@@ -4,13 +4,14 @@ import "./NpsFormModal.css";
 
 import Awful from "../../image/Emotion-Awful.svg";
 import Good from "../../image/Emotion-Good.svg";
-import Perfect from "../../image/Emotion-Great.svg";
+import Great from "../../image/Emotion-Great.svg";
 import Okay from "../../image/Emotion-Okay.svg";
 import So_so from "../../image/Emotion-So-so.svg";
 
-import { Button, SecondarySelectedButton } from "../button/button";
+import { Button, RadioButton } from "../button/button";
 
-import NpsScoreInput from "../NpsScoreInput/NpsScoreInput";
+import { useForm } from "react-hook-form";
+import { Form } from "../../components/form/form";
 
 export default function NpsFormModal() {
   const [feedbackSubmittedYes, setFeedbackSubmittedYes] = useState(false);
@@ -70,6 +71,8 @@ export default function NpsFormModal() {
     }
   };
 
+  const { register, handleSubmit, setValue, watch } = useForm();
+
   const handleModalClose = () => {
     setIsModalOpen(false);
   };
@@ -79,11 +82,6 @@ export default function NpsFormModal() {
   }
 
   const [selectedRating, setSelectedRating] = useState(0);
-
-  const updateSelectedRating = (rating) => {
-    setSelectedRating(rating);
-    setNpsButtonClicked(true);
-  };
 
   return (
     <div className="z-0 bg-black bg-opacity-50 w-full h-882 flex-shrink-0 relative">
@@ -107,67 +105,64 @@ export default function NpsFormModal() {
               Hey, do you enjoy using EdTonomy?
             </h1>
             <div className="w-372 h-54 flex-shrink-0 flex flex-row gap-x-2 pt-4">
-              <Button required type="button">
-                <NpsScoreInput
-                  icon={Awful}
-                  alt="awful"
-                  text="Awful"
-                  onClick={() => updateSelectedRating(1)}
-                  isSelected={selectedRating === 1}
+              <Form
+                onSubmit={handleSubmit((values) => {
+                  alert(JSON.stringify(values));
+                })}
+                onClick={() => setNpsButtonClicked(true)}
+              >
+                <Form.RadioButtonGroup
+                  id="nps-score"
+                  className="flex gap-2 my-3 "
+                  setValue={setValue}
+                  watch={watch}
+                  options={[
+                    {
+                      value: 1,
+                      Icon: Awful,
+                      text: "Awful",
+                    },
+                    {
+                      value: 2,
+                      Icon: So_so,
+                      text: "So-so",
+                    },
+                    {
+                      value: 3,
+                      Icon: Okay,
+                      text: "Okay",
+                    },
+                    {
+                      value: 4,
+                      Icon: Good,
+                      text: "Good",
+                    },
+                    {
+                      value: 5,
+                      Icon: Great,
+                      text: "Great",
+                    },
+                  ]}
                 />
-              </Button>
-              <Button required type="button">
-                <NpsScoreInput
-                  icon={So_so}
-                  alt="so so"
-                  text="So-so"
-                  onClick={() => updateSelectedRating(2)}
-                  isSelected={selectedRating === 2}
-                />
-              </Button>
-              <Button required type="button">
-                <NpsScoreInput
-                  icon={Okay}
-                  alt="okay"
-                  text="Okay"
-                  onClick={() => updateSelectedRating(3)}
-                  isSelected={selectedRating === 3}
-                />
-              </Button>
-              <Button required type="button">
-                <NpsScoreInput
-                  icon={Good}
-                  alt="good"
-                  text="Good"
-                  onClick={() => updateSelectedRating(4)}
-                  isSelected={selectedRating === 4}
-                />
-              </Button>
-              <Button required type="button">
-                <NpsScoreInput
-                  icon={Perfect}
-                  alt="great"
-                  text="Perfect"
-                  onClick={() => updateSelectedRating(5)}
-                  isSelected={selectedRating === 5}
-                />
-              </Button>
+              </Form>
             </div>
 
-            <h1 className="text-black text-[20px] font-inter font-medium leading-120 pt-8">
+            <h1 className="text-black text-[20px] font-inter font-medium leading-120 pt-8 mt-8">
               Would you recommend EdTonomy to a friend?
             </h1>
 
             <div className="flex flex-row gap-x-5 pt-4">
-              <SecondarySelectedButton
+              <RadioButton
                 onClick={handleYesButtonClick}
                 selected={feedbackSubmittedYes}
                 text="Yes"
+                className="w-44"
               />
-              <SecondarySelectedButton
+              <RadioButton
                 onClick={handleNoButtonClick}
                 selected={feedbackSubmittedNo}
                 text="No"
+                className="w-44"
               />
             </div>
 

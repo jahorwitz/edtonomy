@@ -1,3 +1,4 @@
+import Good from "../../image/Emotion-Good.svg";
 import bugIcon from "../../images/bug.svg";
 import checkIcon from "../../images/chevron-right.svg";
 import emailIcon from "../../images/email.svg";
@@ -5,8 +6,8 @@ import playIcon from "../../images/play.svg";
 import {
   Button,
   PrimaryButton,
+  RadioButton,
   SecondaryOutlineButton,
-  SecondarySelectedButton,
 } from "./button";
 
 export default {
@@ -57,17 +58,30 @@ export const ReportBugButton = ({ onClick }) => {
 };
 
 export const SendReportButton = ({ onClick }) => (
-  <PrimaryButton onClick={onClick} text="Send report" />
+  <PrimaryButton onClick={onClick}>Send report</PrimaryButton>
 );
 
 export const YesOutlineButton = ({ onClick }) => (
-  <SecondaryOutlineButton onClick={onClick} text="Yes" />
+  <SecondaryOutlineButton onClick={onClick}>Yes</SecondaryOutlineButton>
 );
 
-export const YesSelectedButton = ({ onClick }) => (
-  <SecondarySelectedButton onClick={onClick} selected={true} text="Yes" />
+export const RadioButtonUnselected = ({ onClick }) => (
+  <RadioButton className="w-44" onClick={onClick} text="Yes" />
 );
 
-export const YesNotSelectedButton = ({ onClick }) => (
-  <SecondarySelectedButton onClick={onClick} selected={false} text="Yes" />
+export const RadioButtonSelected = ({ onClick }) => (
+  <RadioButton className="w-44" onClick={onClick} selected={true} text="Yes" />
+);
+
+export const RadioButtonWithIcon = ({ onClick }) => (
+  <RadioButton onClick={onClick} icon={Good} text="Good" />
+);
+export const RadioButtonWithIconSelected = ({ onClick }) => (
+  <RadioButton
+    onClick={onClick}
+    className="border-black"
+    icon={Good}
+    text="Good"
+    selected
+  />
 );

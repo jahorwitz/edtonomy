@@ -1,37 +1,103 @@
+import { useForm } from "react-hook-form";
+
+import Awful from "../../image/Emotion-Awful.svg";
+import Good from "../../image/Emotion-Good.svg";
+import Great from "../../image/Emotion-Great.svg";
+import Okay from "../../image/Emotion-Okay.svg";
+import So_so from "../../image/Emotion-So-so.svg";
+
 import { Form } from "./form";
+
 export default {
   component: Form,
   title: "Form",
 };
-const Template = (args) => {
-  return <Form {...args} />;
+
+export const Default = () => {
+  const { register, handleSubmit } = useForm();
+  return (
+    <Form
+      onSubmit={handleSubmit((values) => {
+        alert(JSON.stringify(values));
+      })}
+    >
+      <Form.TextArea
+        id="question-1"
+        labelText="What were you trying to do?"
+        placeholder="I was trying to create a new teaching event..."
+        register={register}
+      />
+      <Form.TextArea
+        id="question-2"
+        labelText="What were you trying to do?"
+        placeholder="I was trying to create a new teaching event..."
+        register={register}
+      />
+      <Form.TextArea
+        id="question-3"
+        labelText="What were you trying to do?"
+        placeholder="I was trying to create a new teaching event..."
+        register={register}
+      />
+      <Form.TextArea
+        id="question-4"
+        labelText="Is this Ok?"
+        placeholder="Yes It is "
+        register={register}
+      />
+      <Form.Submit>Send Report</Form.Submit>
+    </Form>
+  );
 };
-export const Default = Template.bind({});
-Default.args = {
-  children: [
-    <Form.TextArea
-      key="question-1"
-      id="question-1"
-      labelText="What were you trying to do?"
-      placeholder="I was trying to create a new teaching event..."
-    />,
-    <Form.TextArea
-      key="question-2"
-      id="question-2"
-      labelText="What were you trying to do?"
-      placeholder="I was trying to create a new teaching event..."
-    />,
-    <Form.TextArea
-      key="question-3"
-      id="question-3"
-      labelText="What were you trying to do?"
-      placeholder="I was trying to create a new teaching event..."
-    />,
-    <Form.TextArea
-      key="question-4"
-      id="question-4"
-      labelText={"Is this Ok?"}
-      placeholder={"Yes It is "}
-    />,
-  ],
+
+export const FormWithRadioButtonGroup = () => {
+  const { register, handleSubmit, setValue, watch } = useForm();
+  return (
+    <Form
+      onSubmit={handleSubmit((values) => {
+        alert(JSON.stringify(values));
+      })}
+    >
+      <Form.RadioButtonGroup
+        id="nps-score"
+        className="flex gap-2 my-3"
+        setValue={setValue}
+        watch={watch}
+        options={[
+          {
+            value: 1,
+            Icon: Awful,
+            text: "Awful",
+          },
+          {
+            value: 2,
+            Icon: So_so,
+            text: "So-so",
+          },
+          {
+            value: 3,
+            Icon: Okay,
+            text: "Okay",
+          },
+          {
+            value: 4,
+            Icon: Good,
+            text: "Good",
+          },
+          {
+            value: 5,
+            Icon: Great,
+            text: "Great",
+          },
+        ]}
+      />
+      <Form.TextArea
+        id="additional-comments"
+        labelText="Please share any additional thoughts"
+        placeholder="..."
+        register={register}
+      />
+      <Form.Submit>Send Report</Form.Submit>
+    </Form>
+  );
 };
