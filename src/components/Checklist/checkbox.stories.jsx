@@ -1,14 +1,21 @@
-import { Checkbox } from "./checkbox";
+import Checklist from "./checklist";
 
+// Defined argTypes property
 export default {
-  component: Checkbox,
+  component: Checklist.Checkbox,
+  argTypes: {
+    backgroundColor: { control: "color" },
+    color: { control: "color" },
+  },
 };
 
-const Template = (args) => <Checkbox {...args} />;
+const Template = (args) => <Checklist.Checkbox {...args} />;
 
 export const CustomRadio = Template.bind({});
 
+// Set argTypes property
 CustomRadio.args = {
   label: "Change Text here",
-  backgroundColor: "grey",
+  backgroundColor: "",
+  color: "",
 };

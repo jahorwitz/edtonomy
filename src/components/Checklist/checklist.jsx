@@ -1,39 +1,55 @@
 import { useState } from "react";
-import { Checkbox } from "./checkbox";
+import ChevronUnchecked from "../../images/chevron-right-black.svg";
+import ChevronChecked from "../../images/chevron-right-gray.svg";
 
-export default function Checklist() {
-  const items = [
-    {
-      name: "Setup your profile",
-      href: "",
-      article: "",
-      isChecked: false,
-    },
-    {
-      name: "Connect your Stripe account",
-      href: "",
-      article: "",
-      isChecked: false,
-    },
-    {
-      name: "Create parent and learner contacts",
-      href: "",
-      article: "",
-      isChecked: false,
-    },
-  ];
-  const [todos, setTodos] = useState(items);
-  // use setTodos on schema???
-
+export default function Checklist({ children }) {
   return (
     <div className="w-full px-4 py-16">
       <div className="flex flex-col mx-auto w-full max-w-md h-90 overflow-auto">
-        {todos.map((item, index) => (
-          <ul key={index}>
-            <Checkbox label={item.name} url={item.url} article={item.article} />
-          </ul>
-        ))}
+        {children}
       </div>
     </div>
   );
 }
+
+// Used to set Checkboxes in storybook
+Checklist.Checkbox = ({ label, url, article, backgroundColor, color }) => {
+  const [isChecked, setIsChecked] = useState(false); //unchecked on initial value
+
+  return (
+    <div className="min-h-0">
+      <div
+        className={
+          "flex mb-2 h-full " +
+          (isChecked ? "hover:bg-white" : "hover:bg-zinc-200")
+        }
+        style={{ backgroundColor }}
+      >
+        <input
+          className="cursor-pointer checked:text-zinc-400 checked:ring-zinc-400 
+        border-zinc-400 outline outline-5 outline-white disabled:border-zinc-400
+        ring ring-5 ring-zinc-400 focus:ring-zinc-400 
+        focus:outline-none rounded-full mx-2 my-1.5"
+          type="checkbox"
+          onChange={() => setIsChecked((prev) => !prev)}
+        />
+        <a
+          className={
+            "grow overflow-hidden whitespace-nowrap text-ellipsis " +
+            (isChecked
+              ? "line-through text-zinc-400 cursor-default"
+              : "text-black cursor-help")
+          }
+          href={url || article}
+          style={{ color }}
+        >
+          {label}
+        </a>
+        <img
+          src={isChecked ? ChevronChecked : ChevronUnchecked}
+          alt="chevron-image"
+        />
+      </div>
+    </div>
+  );
+};
