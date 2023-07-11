@@ -8,22 +8,26 @@ import Great from "../../image/Emotion-Great.svg";
 import Okay from "../../image/Emotion-Okay.svg";
 import So_so from "../../image/Emotion-So-so.svg";
 
-import { Button,RadioButton } from "../button/button";
+import { Button, RadioButton } from "../button/button";
 
 import { useForm } from "react-hook-form";
 import { Form } from "../../components/form/form";
 
 export default function NpsFormModal() {
-  const [feedbackSubmittedYes, setFeedbackSubmittedYes] = useState(false); /*If yes is clicked */
-  const [feedbackSubmittedNo, setFeedbackSubmittedNo] = useState(false); /*If no is clicked */
-  const [npsButtonClicked, setNpsButtonClicked] = useState(false); /*If one of the nps button is clicked */
+  const [feedbackSubmittedYes, setFeedbackSubmittedYes] =
+    useState(false); /*If yes is clicked */
+  const [feedbackSubmittedNo, setFeedbackSubmittedNo] =
+    useState(false); /*If no is clicked */
+  const [npsButtonClicked, setNpsButtonClicked] =
+    useState(false); /*If one of the nps button is clicked */
 
-  const [feedbackText, setFeedbackText] = useState(""); /*Sets values in textarea to none */
+  const [feedbackText, setFeedbackText] =
+    useState(""); /*Sets values in textarea to none */
 
   const [formSubmit, setFormSubmit] = useState(false);
 
-
-  const [isFeedbackValid, setIsFeedbackValid] = useState(false); /*If there is input inside the textarea */
+  const [isFeedbackValid, setIsFeedbackValid] =
+    useState(false); /*If there is input inside the textarea */
 
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
@@ -37,7 +41,9 @@ export default function NpsFormModal() {
     setFeedbackSubmittedNo(false);
 
     setIsFeedbackValid(true);
-    setFeedbackText(""); /*If user presses no, then yes, it will reset/remove any input the textarea */
+    setFeedbackText(
+      ""
+    ); /*If user presses no, then yes, it will reset/remove any input the textarea */
   };
 
   /*Checks if the no button is clicked before submitting */
