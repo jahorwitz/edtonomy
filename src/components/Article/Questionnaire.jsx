@@ -63,6 +63,7 @@ export default function Questionnaire() {
                   value={feedbackText}
                   onChange={(e) => setFeedbackText(e.target.value)}
                   placeholder="Tell us"
+                  required
                 />
 
                 <SecondaryOutlineButton text="Submit" type="submit" />
