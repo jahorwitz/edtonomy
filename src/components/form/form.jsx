@@ -2,6 +2,7 @@ import cx from "classnames";
 import { PrimaryButton, RadioButton } from "../button";
 //commented out the line above because it had import problems --Cristopher Campos
 // the Form component take as argument the children elements, an onSubmit function and atributes for a form tag.
+
 export const Form = ({ className, children, onSubmit, ...rest }) => {
   return (
     // form element
@@ -11,6 +12,7 @@ export const Form = ({ className, children, onSubmit, ...rest }) => {
   );
 };
 // the Form.TextArea element take as argument props and htmlInputElement
+/*
 Form.TextArea = ({ className, labelText, id, register, ...rest }) => {
   return (
     <>
@@ -27,6 +29,30 @@ Form.TextArea = ({ className, labelText, id, register, ...rest }) => {
           type="text"
           {...rest}
           //registering the name for the text are in the hook
+          {...register(id)}
+        />
+      </div>
+    </>
+  );
+};
+*/
+
+Form.TextArea = ({ className, labelText, id, register, ...rest }) => {
+  return (
+    <>
+      <div className={cx("flex flex-col", className)}>
+        <label
+          htmlFor={id}
+          className="font-medium text-[1.25rem] text-black leading-[120%]"
+        >
+          {labelText}
+        </label>
+        <textarea
+          id={id}
+          className="h-[105px] text-black font-medium leading-[120%] text-[1rem] pl-[12px] pt-[12px] pr-[12px] resize-none mt-[16px] mb-[24px] border border-solid border-black/[0.4] rounded-lg "
+          type="text"
+          {...rest}
+          // Registering the name for the textarea in the hook
           {...register(id)}
         />
       </div>

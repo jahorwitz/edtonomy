@@ -21,7 +21,6 @@ export default {
         54: "54px",
         105: "105px",
         70: "70px",
-
       },
       width: {
         420: "420px",
@@ -47,10 +46,13 @@ export default {
         8: "8px",
       },
       padding: {
-        '8px': '8px',
-        '17px':'17px',
-        '18px':'18px'
-      }
+        "8px": "8px",
+        "17px": "17px",
+        "18px": "18px",
+        "60": "60px",
+        "84": "84px",
+        "80": "80px",
+      },
     },
   },
   plugins: [],

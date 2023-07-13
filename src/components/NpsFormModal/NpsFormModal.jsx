@@ -107,7 +107,7 @@ export default function NpsFormModal() {
           ></button>
           {isFormSubmitted ? (
             <div className="pl-6">
-              <h1 className="text-black text-[20px] font-inter font-medium leading-120 pt-8">
+              <h1 className="text-black text-[20px] font-inter font-medium leading-120 pl-60 pr-84 pt-80 pb-60">
                 Thanks for your feedback!
               </h1>
             </div>
