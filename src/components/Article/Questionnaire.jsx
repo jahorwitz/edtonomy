@@ -39,6 +39,7 @@ export default function Questionnaire() {
               <div className="flex flex-row gap-5 mt-5">
                 <SecondaryOutlineButton
                   onClick={handleYesButtonClick}
+                  onSubmit={handleFormSubmit}
                   text="Yes"
                 />
                 <SecondaryOutlineButton
