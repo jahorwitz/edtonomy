@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Article, BugReport, Chat, Welcome } from "../../views";
+import { Article, BugReport, Chat, GettingStarted, Welcome } from "../../views";
 import { ModalWithVideo } from "../modal-with-video";
 import { WidgetContainer } from "./widget-container";
 
@@ -23,7 +23,8 @@ export const Support = () => {
         <Welcome stepName="welcome" onShowVideo={() => setShowModal(true)} />
         <BugReport stepName="bug-report" />
         <Chat stepName="chat" />
-        <Article stepName="article" />
+        <GettingStarted stepName="getting-started" />
+        <Article stepName="article-name" />
       </WidgetContainer>
     </>
   );
