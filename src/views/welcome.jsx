@@ -25,6 +25,7 @@ export const Welcome = ({ goToNamedStep, onShowVideo }) => (
       <Button.WithLink
         icon={checkIcon}
         to=""
+        onClick={() => goToNamedStep("getting-started")}
         textBold="Getting started checklist"
         text="8 easy steps to get you on board"
       />

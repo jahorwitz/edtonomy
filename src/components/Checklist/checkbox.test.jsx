@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import Checklist from "./checklist";
+import { Checklist } from "./checklist";
 
 test("should update state of Checkbox component on click", async () => {
   render(<Checklist.Checkbox />);

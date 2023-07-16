@@ -1,4 +1,4 @@
-import Checklist from "./checklist";
+import { Checklist } from "./checklist";
 
 // Defined argTypes property
 export default {
