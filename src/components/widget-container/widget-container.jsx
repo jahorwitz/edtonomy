@@ -52,7 +52,7 @@ export const WidgetContainer = ({ children }) => {
             Support
           </PrimaryButton>
         ) : (
-          <div className="bg-white shadow-slate-200 drop-shadow-md pl-6 pr-6 pt-8 pb-1 w-[411px] rounded-xl">
+          <div className="bg-white shadow-slate-200 drop-shadow-md pl-6 pr-6 pt-8 pb-1 w-[420px] rounded-xl">
             <button className="absolute right-6 top-14 z-10">
               <img
                 src={closeIcon}

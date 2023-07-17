@@ -38,23 +38,43 @@ Form.Submit = ({ children }) => {
   return <PrimaryButton type="submit">{children}</PrimaryButton>;
 };
 
-Form.RadioButtonGroup = ({ className, id, options, setValue, watch }) => {
+Form.RadioButtonGroup = ({
+  className,
+  id,
+  options,
+  labelText,
+  setValue,
+  watch,
+}) => {
   const selected = watch(id);
 
   return (
-    <ul className={cx("", className)}>
-      {options.map((option) => (
-        <li key={option.value}>
-          <RadioButton
-            className={`${selected === option.value ? "border-black" : ""}`}
-            icon={option.Icon}
-            onClick={() => setValue(id, option.value)}
-            text={option.text}
-            selected={selected === option.value}
-          />
-        </li>
-      ))}
-    </ul>
+    <>
+      {labelText && (
+        <label
+          htmlFor={id}
+          className="font-medium text-[1.25rem] text-black leading-[120%]"
+        >
+          {labelText}
+        </label>
+      )}
+
+      <ul className={cx("", className)}>
+        {options.map((option) => (
+          <li key={option.value}>
+            <RadioButton
+              className={`${selected === option.value ? "border-black" : ""} ${
+                option.className ?? ""
+              }`}
+              icon={option.Icon}
+              onClick={() => setValue(id, option.value)}
+              text={option.text}
+              selected={selected === option.value}
+            />
+          </li>
+        ))}
+      </ul>
+    </>
   );
 };
 
