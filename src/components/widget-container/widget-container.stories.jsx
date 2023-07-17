@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { Article, BugReport, Chat, GettingStarted, Welcome } from "../../views";
+import {
+  Article,
+  BugReport,
+  Chat,
+  GettingStarted,
+  ProfileSetup,
+  Welcome,
+} from "../../views";
 import { ModalWithVideo } from "../modal-with-video";
 import { WidgetContainer } from "./widget-container";
 
@@ -24,7 +31,10 @@ export const Support = () => {
         <BugReport stepName="bug-report" />
         <Chat stepName="chat" />
         <GettingStarted stepName="getting-started" />
-        <Article stepName="article-name" />
+        <Article stepName="profile-setup" title="How to Set Up Your Profile">
+          <ProfileSetup />
+        </Article>
+        <Article stepName="article-name" title="Another Helpful Article" />
       </WidgetContainer>
     </>
   );

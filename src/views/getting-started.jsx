@@ -15,7 +15,7 @@ export const GettingStarted = ({ goToNamedStep }) => (
     </div>
     <Checklist className="py-4">
       <Checklist.Checkbox
-        onClick={() => goToNamedStep("article-name")}
+        onClick={() => goToNamedStep("profile-setup")}
         article=""
         label="Setup your profile"
       />
